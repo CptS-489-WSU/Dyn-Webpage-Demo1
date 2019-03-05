@@ -35,13 +35,20 @@ function getCoursesCallback(response, status) {
                     "<td>" + response.data[i].city + "</td>" +
                     "<td>" + response.data[i].state + "</td>" +
                     "<td>" + response.data[i].country + "</td>" +
-                    "<td>" + response.data[i].numHoles + "</td>" +
-                    "<td>" + response.data[i].totalStrPar + "</td>" +
-                    "<td>" + SGTimeToString(new Date(response.data[i].totalTimePar)) + "</td>" +
-                    "<td>" + response.data[i].totalGolfDist + "</td>" +
-                    "<td>" + response.data[i].totalRunDist + "</td>";
+                    "<td class='tdWideScren'>" + response.data[i].numHoles + "</td>" +
+                    "<td class='tdWideScren'>" + response.data[i].totalStrPar + "</td>" +
+                    "<td class='tdWideScren'>" + SGTimeToString(new Date(response.data[i].totalTimePar)) + "</td>" +
+                    "<td class='tdWideScren'>" + response.data[i].totalGolfDist + "</td>" +
+                    "<td class='tdWideScren'>" + response.data[i].totalRunDist + "</td>";
        $("#coursesTable").find("tbody:last").append(thisCourse);
     }
+
+    //5. Potentially resize the table based on screen width
+    if ($(window).width() < 760) { //Reduce coures list to just 4 columns for smaller screens
+      $(".hWideScreen").remove();
+      $(".tdWideScreen").remove();
+    }
+
 }
 
 /* JQUERY EVENT HANDLERS */
