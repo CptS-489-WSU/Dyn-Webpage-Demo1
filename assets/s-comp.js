@@ -35,11 +35,11 @@ function getCoursesCallback(response, status) {
                     "<td>" + response.data[i].city + "</td>" +
                     "<td>" + response.data[i].state + "</td>" +
                     "<td>" + response.data[i].country + "</td>" +
-                    "<td class='tdWideScren'>" + response.data[i].numHoles + "</td>" +
-                    "<td class='tdWideScren'>" + response.data[i].totalStrPar + "</td>" +
-                    "<td class='tdWideScren'>" + SGTimeToString(new Date(response.data[i].totalTimePar)) + "</td>" +
-                    "<td class='tdWideScren'>" + response.data[i].totalGolfDist + "</td>" +
-                    "<td class='tdWideScren'>" + response.data[i].totalRunDist + "</td>";
+                    "<td class='tdWideScreen'>" + response.data[i].numHoles + "</td>" +
+                    "<td class='tdWideScreen'>" + response.data[i].totalStrPar + "</td>" +
+                    "<td class='tdWideScreen'>" + SGTimeToString(new Date(response.data[i].totalTimePar)) + "</td>" +
+                    "<td class='tdWideScreen'>" + response.data[i].totalGolfDist + "</td>" +
+                    "<td class='tdWideScreen'>" + response.data[i].totalRunDist + "</td>";
        $("#coursesTable").find("tbody:last").append(thisCourse);
     }
 
@@ -119,7 +119,7 @@ $("#updateBtn").click(function () {
 
 /* HELPER FUNCTIONS */
 
-/* camelize -- Converts string to camel case
+/* camelize -- Converts string to camel case. This is needed because the RESTful API params use camel case.
 */
 function camelize(str) {
     return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
